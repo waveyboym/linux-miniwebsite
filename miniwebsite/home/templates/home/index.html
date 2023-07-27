@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>System Details Dashboard</title> 
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+        <div class="dashboard-container">
+
+        <div class="navbar navbar-light bg-light nav-bar d-flex justify-content-center">
+            <h1 class="text-center mt-2">System Details Dashboard</h1>
+        </div>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                <div class="col d-flex justify-content-center mb-3">
+                <div class="card info-cards" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Current system load</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Showing system load</h6>
+                        <p class="card-text">1 minute ago: {{cpu_usage_1minAgo}} %</p>
+                        <p class="card-text">5 minute ago: {{cpu_usage_5minAgo}} %</p>
+                        <p class="card-text">15 minute ago: {{cpu_usage_15minAgo}} %</p>
+                    </div>
+                </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-3">
+                <div class="card info-cards" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Free memory</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Available RAM on the system</h6>
+                        <p class="card-text">{{available_ram}} MB</p>
+                    </div>
+                </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-3">
+                <div class="card info-cards" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Free disk space</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Available NVRAM on the system</h6>
+                        <p class="card-text">{{available_space}} GB</p>
+                    </div>
+                </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-3">
+                <div class="card info-cards" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Kernel version</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Current kernel version</h6>
+                        <p class="card-text">{{kernel}}</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-2">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2">
+                <div class="col d-flex justify-content-center mb-3">
+                <div class="card more-info-cards" style="width: 36rem;  height: 14rem; overflow-y: auto;">
+                    <div class="card-body">
+                        <h5 class="card-title">Current network connections</h5>
+                        {% for i in networks %}
+                        <p class="card-text">{{i}}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex justify-content-center mb-3">
+                <div class="card more-info-cards" style="width: 36rem; height: 14rem; overflow-y: auto;">
+                    <div class="card-body">
+                        <h5 class="card-title">All system packages</h5>
+                        {% for i in modules %}
+                        <p class="card-text">{{i}}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
