@@ -1,3 +1,3 @@
 deactivate-virtual-environment: deactivate
-activate-virtual-environment: source miniwebsite_venv/bin/activate
-<must be executed in "/mnt/c/personal projects/linux-miniwebsite$">
+activate-virtual-environment: source miniwebsite_venv/bin/activate <must be executed in "/mnt/c/personal projects/linux-miniwebsite$">
+run sever: python manage.py runserver
