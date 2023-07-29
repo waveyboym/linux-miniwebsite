@@ -43,7 +43,12 @@ def miniwebsite(request):
         'cpu_usage_1minAgo': math.ceil(cpu_usage_1minAgo * 100)/100,
         "networks": network_conns,
         'available_ram': free_memory,
-        "available_space": shutil.disk_usage("/usr").free / 1000000000, # if you use windows, change what is in the string to "C:/" :  if on linux, change it to "/mnt/c/"
+        # to explain this, /user is the only directory we have access to when running from docker
+        # because I set the workdir to /user in the dockerfile's
+        # if we run from django, we can ask for available space for the entire system
+        # hence if you use django to run your server instead of docker
+        # and if you use windows, change what is in the string to "C:/" :  if on linux, change it to "/mnt/c/"
+        "available_space": shutil.disk_usage("/usr").free / 1000000000, 
         "modules": installed_packages_list,
         "kernel": platform.platform()
     }

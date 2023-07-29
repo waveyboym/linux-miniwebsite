@@ -23,7 +23,7 @@ docker-compose up -d
 //stop container<dev>
 docker-compose stop
 
-//bringing down dev container<prod>
+//bringing down dev container<prod> basically deletes the container and the network
 docker-compose down -v
 
 //build prod image

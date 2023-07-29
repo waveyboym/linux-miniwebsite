@@ -7,3 +7,6 @@ echo "Changing dir"
 
 # stop the dev server from running
 docker-compose stop
+
+# remove container and previous network
+docker-compose down -v
