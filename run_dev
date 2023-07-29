@@ -1,0 +1,16 @@
+#!/bin/bash
+# activate's the virtual environment
+echo 'Building and running server now...'
+source ./activate_venv
+
+# change directory
+cd miniwebsite
+
+# let docker build an image
+docker-compose build
+
+# let docker run the container
+docker-compose up -d
+
+# activate gunicorn server(timeout exists because my computer was too slow in setting up the server)
+# gunicorn miniwebsite.wsgi --timeout 180

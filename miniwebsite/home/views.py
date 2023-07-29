@@ -11,6 +11,7 @@ import math
 def miniwebsite(request):
     # gets load average from one minute ago, 5 minutes ago and 15 minutes ago
     load1, load5, load15 = psutil.getloadavg()
+    
     # we split the load across the cpu count on the system
     cpu_usage_15minAgo = (load15/os.cpu_count()) * 100
     cpu_usage_5minAgo = (load5/os.cpu_count()) * 100
@@ -27,7 +28,12 @@ def miniwebsite(request):
     installed_packages_list = sorted(["%s==%s" % (i.key, i.version)for i in installed_packages])
 
     # not my code, gets available ram on the system
-    total_memory, used_memory, free_memory = map(int, os.popen('free -t -m').readlines()[-1].split()[1:])
+    # [0]total: total memory excluding swap
+    # [1]available: available memory for processes
+    # [2]percent: memory usage in percent
+    # [3]used: the memory used
+    # [4]free: memory not used at and is readily available
+    free_memory = psutil.virtual_memory()[4]/1000000
 
     # data object to send to html
     data = {
@@ -37,7 +43,7 @@ def miniwebsite(request):
         'cpu_usage_1minAgo': math.ceil(cpu_usage_1minAgo * 100)/100,
         "networks": network_conns,
         'available_ram': free_memory,
-        "available_space": shutil.disk_usage("/mnt/c/").free / 1000000000, # if you use windows, change what is in the string to "C:/"
+        "available_space": shutil.disk_usage("/usr").free / 1000000000, # if you use windows, change what is in the string to "C:/" :  if on linux, change it to "/mnt/c/"
         "modules": installed_packages_list,
         "kernel": platform.platform()
     }

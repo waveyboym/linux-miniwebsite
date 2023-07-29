@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./miniwebsite
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./miniwebsite/:/usr/src/miniwebsite/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.dev
