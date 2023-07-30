@@ -4,6 +4,7 @@ A simple mini website that shows the host computer's details such as cpu usage, 
 This project was done in django and is hosted from a machine running Ubuntu 22.04 WSL from Windows 10.
 
 ***Note that this project was only tested from an ubuntu machine as I could not get it to work in windows***
+***Note this project assumes you already have python3 installed***
 
 # Presentation
 ![presentation](images/presentation.png "presentation")
@@ -19,8 +20,10 @@ This project was done in django and is hosted from a machine running Ubuntu 22.0
 
 ### To setup this project on your machine in production mode:
 
-1. Assuming you have already created a virtual environment folder, that is miniwebsite_venv already exists(if not just run ```python3 -m venv miniwebsite_venv && source ./run_prod.sh```), Open a new terminal in the project directory and run ```source ./run_prod.sh```. This will install all neccessary dependencies and start up a live server at ```localhost:8000``` for you.
-2. To close the project, in the terminal of the project directory, run ```source ./close_prod.sh```. This will deactivate the virtual environment and stop the server from being hosted.
+1. Download <a href="https://www.docker.com/">docker</a> and launch the application and leave it launched
+2. Clone this repo
+3. Assuming you have already created a virtual environment folder, that is miniwebsite_venv already exists(if not just run ```python3 -m venv miniwebsite_venv && source ./run_prod.sh``` in your terminal instead), Open a new terminal in the project directory and run ```source ./run_prod.sh```. This will install all neccessary dependencies and start up a live server at ```localhost:8000``` for you.
+4. To close the project, in the terminal of the project directory, run ```source ./close_prod.sh```. This will deactivate the virtual environment and stop the server from being hosted.
 
 # Extras
 ### Convert a bash script from DOS to Unix
