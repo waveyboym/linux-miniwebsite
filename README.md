@@ -13,13 +13,13 @@ This project was done in django and is hosted from a machine running Ubuntu 22.0
 ### To setup this project on your machine in dev mode:
 1. Download <a href="https://www.docker.com/">docker</a>
 2. Clone this repo
-3. Open a new terminal in the project directory and run ```source ./rundev.sh```. This will install all neccessary dependencies and start up a live server at ```localhost:8000``` for you.
+3. Open a new terminal in the project directory and run ```python3 -m venv miniwebsite_venv && source ./rundev.sh```. This will install all neccessary dependencies, create a virtual environment and start up a live server at ```localhost:8000``` for you. It may take some time to finish setting up.
 4. To stop the server from running, on your keyboard press CTRL-C at the same time.
 5. To close the project, in the terminal of the project directory, run ```source ./closedev.sh```. This will deactivate the virtual environment and stop the server from being hosted.
 
 ### To setup this project on your machine in production mode:
 
-1. Open a new terminal in the project directory and run ```source ./run_prod.sh```. This will install all neccessary dependencies and start up a live server at ```localhost:8000``` for you.
+1. Assuming you have already created a virtual environment folder, that is miniwebsite_venv already exists(if not just run ```python3 -m venv miniwebsite_venv && source ./run_prod.sh```, Open a new terminal in the project directory and run ```source ./run_prod.sh```. This will install all neccessary dependencies and start up a live server at ```localhost:8000``` for you.
 2. To close the project, in the terminal of the project directory, run ```source ./close_prod.sh```. This will deactivate the virtual environment and stop the server from being hosted.
 
 # Extras
