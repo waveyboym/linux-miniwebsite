@@ -13,7 +13,7 @@ This project was done in django and is hosted from a machine running Ubuntu 22.0
 ### To setup this project on your machine in dev mode:
 1. Download <a href="https://www.docker.com/">docker</a>
 2. Clone this repo
-3. Open a new terminal in the project directory and run ```source ./run_dev```. This will install all neccessary dependencies and start up a live server at ```localhost:8000``` for you.
+3. Open a new terminal in the project directory and run ```source ./rundev.sh```. This will install all neccessary dependencies and start up a live server at ```localhost:8000``` for you.
 4. To stop the server from running, on your keyboard press CTRL-C at the same time.
 5. To close the project, in the terminal of the project directory, run ```source ./closedev.sh```. This will deactivate the virtual environment and stop the server from being hosted.
 
