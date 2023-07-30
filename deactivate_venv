@@ -1,6 +1,0 @@
-#!/bin/bash
-# deactivate virtual environment
-deactivate
-
-# change to go up a directory in the command line because we were in the miniwebsite directory when this script was called
-cd ..
