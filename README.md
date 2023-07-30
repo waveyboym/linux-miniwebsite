@@ -5,6 +5,9 @@ This project was done in django and is hosted from a machine running Ubuntu 22.0
 
 ***Note that this project was only tested from an ubuntu machine as I could not get it to work in windows***
 
+# Presentation
+![presentation](images/presentation.png "presentation")
+
 # Setup
 
 ### To setup this project on your machine in dev mode:

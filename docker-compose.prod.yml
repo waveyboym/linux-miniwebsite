@@ -6,7 +6,20 @@ services:
       context: ./miniwebsite
       dockerfile: Dockerfile.prod
     command: gunicorn miniwebsite.wsgi:application --bind 0.0.0.0:8000 --timeout 60
-    ports:
-      - 8000:8000
+    volumes:
+      - static:/miniwebsite/home/static
+    expose:
+    - 8000
     env_file:
       - ./.env.prod
+  nginx:
+    build: ./nginx
+    volumes:
+      - static:/miniwebsite/home/static
+    ports:
+      - 1337:80
+    depends_on:
+      - web
+
+volumes:
+  static:
